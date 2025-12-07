@@ -1,0 +1,24 @@
+.contact-preview {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-preview__icon {
+    height: 100%;
+}
+
+.contact-preview__info {
+    padding-left: 20px;
+}
+
+.contact-preview__name {
+    margin: 0;
+}
+
+.contact-preview__status {
+    margin: 0;
+}
+
+.contact-preview__actions {
+    margin-left: auto;
+}

@@ -1,0 +1,30 @@
+.message {
+
+}
+
+.message__icon {
+    width: 50px;
+}
+
+.message__content {
+
+}
+
+.message__user-name {
+
+}
+
+.message__text {
+
+}
+
+.message__time {
+
+}
+.message_by-user {
+    align-self: flex-end;
+}
+
+.message_by-contact {
+    align-self: self-start;
+}
