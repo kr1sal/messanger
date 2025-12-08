@@ -1,0 +1,32 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres:17
+    restart: always
+    environment:
+      - POSTGRES_USER=service
+      - POSTGRES_PASSWORD=service
+    ports:
+      - 5433:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - messanger-backend
+  redis:
+    container_name: redis
+    image: redis:5.0
+    restart: always
+    ports:
+      - 6379:6379
+    command: redis-server --requirepass service
+    volumes:
+      - redis_data:/data
+    networks:
+      - messanger-backend
+
+volumes:
+  postgres-data:
+  redis_data:
+
+networks:
+  messanger-backend:
