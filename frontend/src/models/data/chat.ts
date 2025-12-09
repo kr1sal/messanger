@@ -1,11 +1,8 @@
-type Member = {
-    userId: string
-    canSend: boolean
-    isOwner: boolean
+import type { MemberData } from "./member";
 
-} 
+type ChatData = {
+  id: string;
+  members: MemberData[];
+};
 
-type Chat = {
-    id: string
-    members: Member[]
-}
+export type { ChatData };

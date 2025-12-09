@@ -1,4 +1,4 @@
-import type { UserData } from "../../model/data/user";
+import type { UserData } from "../../models/data/user";
 import profileIconPath from '../../assets/profile.svg';
 import "./ContactPreview.css";
 

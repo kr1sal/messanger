@@ -6,7 +6,6 @@ import { useState } from 'react';
 function SearchContacts() {
     const [searchValue, setSearchValue] = useState<string>();
 
-    // ПРИМЕР: обработка нажатия и ввода
     const handleSearch = () => {
         alert(`searching for... ${searchValue}`);
     }

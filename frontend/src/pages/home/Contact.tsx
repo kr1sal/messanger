@@ -1,7 +1,7 @@
 import './Contact.css';
 import profileIconPath from '../../assets/profile.svg';
 import deleteIconPath from '../../assets/close.svg';
-import type { UserData } from '../../model/data/user';
+import type { UserData } from '../../models/data/user';
 
 function Contact(props: UserData) {
     return <div className="contact">

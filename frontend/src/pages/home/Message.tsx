@@ -1,4 +1,4 @@
-import type { MessageData } from "../../model/data/message";
+import type { MessageData } from "../../models/data/message";
 import profileIconPath from '../../assets/profile.svg';
 import "./Message.css"
 

@@ -1,10 +1,10 @@
 import './Page.css';
 import Contact from './Contact';
 import SearchContacts from './SearchContacts';
-import type { UserData } from '../../model/data/user';
+import type { UserData } from '../../models/data/user';
 import profileIconPath from '../../assets/profile.svg';
 import ContactPreview from './ContactPreview';
-import type { MessageData } from '../../model/data/message';
+import type { MessageData } from '../../models/data/message';
 import Message from './Message';
 import SendMessage from './SendMessage';
 
@@ -13,12 +13,12 @@ function HomePage() {
         { id: "asdliasd", name: "test name", status: "adidas", avatarUrl: "https://www.vhv.rs/dpng/d/17-174778_vladimir-putin-png-transparent-png.png" }
     ]
 
-    const currentUser: UserData = {
-        id: "1",
-        name: "Lol",
-        status: "kek",
-        avatarUrl: '',
-    }
+    // const currentUser: UserData = {
+    //     id: "1",
+    //     name: "Lol",
+    //     status: "kek",
+    //     avatarUrl: '',
+    // }
 
     const currentContactData: UserData = {
         id: "2",
