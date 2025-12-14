@@ -7,6 +7,8 @@ import { CoreModule } from './core/core.module';
 import { ConfigService } from '@nestjs/config';
 import fastifyCookie from '@fastify/cookie';
 import secureSession from '@fastify/secure-session';
+// import { RedisStore } from 'connect-redis';
+// import Redis from 'ioredis';
 import { ValidationPipe } from '@nestjs/common';
 import { parseBoolean, ums } from './shared/utils';
 import { StringValue } from 'ms';
@@ -20,6 +22,11 @@ async function bootstrap() {
 
   const config = app.get(ConfigService);
   // const redis = app.get(RedisService);
+  // const store = new RedisStore({
+  //   client: new Redis({
+  //     enableAutoPipelining: true,
+  //   }),
+  // });
 
   await app.register(fastifyCookie, {
     secret: config.getOrThrow<string>('COOKIES_SECRET'),
