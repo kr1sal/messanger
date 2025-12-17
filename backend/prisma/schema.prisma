@@ -19,5 +19,50 @@ model User {
   avatar      String?
   bio         String?
 
+  chats    Chat[]
+  members  Member[]
+  messages Message[]
+
   @@map("users")
+}
+
+model Chat {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  displayName String?   @map("display_name")
+  logo        String?
+  description String?
+
+  members  Member[]
+  user     User?     @relation(fields: [userId], references: [id])
+  userId   String?
+  messages Message[]
+
+  @@map("chats")
+}
+
+model Member {
+  id     String @id @default(uuid())
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @map("user_id")
+  chat   Chat   @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  chatId String @map("chat_id")
+
+  @@map("members")
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  sender    User     @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  senderId  String   @map("sender_id")
+  chat      Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  chatId    String   @map("chat_id")
+  text      String
+
+  @@map("messages")
 }

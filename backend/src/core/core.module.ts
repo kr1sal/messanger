@@ -4,12 +4,12 @@ import { PrismaModule } from './prisma/prisma.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
-// import { GRAPHQL_PREFIX } from 'src/shared/utils';
-// import { join } from 'path';
 import { RedisModule } from './redis/redis.module';
 import { join } from 'node:path';
 import { AccountModule } from 'src/modules/auth/account/account.module';
 import { SessionModule } from 'src/modules/auth/session/session.module';
+import { ChatModule } from 'src/modules/chat/chat.module';
+import { UserModule } from 'src/modules/user/user.module';
 
 @Module({
   imports: [
@@ -22,11 +22,14 @@ import { SessionModule } from 'src/modules/auth/session/session.module';
       context: (req, res) => ({ req, res }),
       graphiql: true,
       sortSchema: true,
+      installSubscriptionHandlers: true,
     }),
     PrismaModule,
     RedisModule,
     AccountModule,
     SessionModule,
+    ChatModule,
+    UserModule,
   ],
 })
 export class CoreModule {}

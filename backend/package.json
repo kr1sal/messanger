@@ -39,6 +39,7 @@
     "connect-redis": "^9.0.0",
     "cookie-parser": "^1.4.7",
     "graphql": "^16.12.0",
+    "graphql-subscriptions": "^3.0.0",
     "graphql-ws": "^6.0.6",
     "ioredis": "^5.8.2",
     "ms": "^2.1.3",

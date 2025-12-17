@@ -1,9 +1,9 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AccountService } from './account.service';
-import { UserModel } from './models/user.model';
 import { CreateUserInput } from './inputs/create-user.input';
 import { Authorization } from 'src/shared/decorators/authorization.decorator';
 import { Authorized } from 'src/shared/decorators/authorized.decorator';
+import { UserModel } from 'src/modules/user/models/user.model';
 
 @Resolver('Account')
 export class AccountResolver {

@@ -1,8 +1,8 @@
 import 'fastify';
-import { UserModel } from 'prisma/generated/models';
+import type { AuthUser } from './auth-user.types';
 
 declare module 'fastify' {
   interface FastifyRequest {
-    user: UserModel | null;
+    user: AuthUser | null;
   }
 }

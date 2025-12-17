@@ -1,7 +1,9 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { MemberModel } from './member.model';
+import { MessageModel } from './message.model';
 
 @ObjectType()
-export class UserModel {
+export class ChatModel {
   @Field(() => ID)
   public id: string;
 
@@ -11,17 +13,15 @@ export class UserModel {
   public updatedAt: Date;
 
   @Field(() => String)
-  public email: string;
-  @Field(() => String)
-  public password: string;
-
-  @Field(() => String)
-  public username: string;
-  @Field(() => String)
   public displayName: string;
 
   @Field(() => String, { nullable: true })
-  public avatar: string;
+  public logo: string;
   @Field(() => String, { nullable: true })
-  public bio: string;
+  public description: string;
+
+  @Field(() => [MemberModel])
+  public members: MemberModel[];
+  @Field(() => [MessageModel])
+  public messages: MessageModel[];
 }

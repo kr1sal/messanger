@@ -2,6 +2,23 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type ChatModel {
+  createdAt: DateTime!
+  description: String
+  displayName: String!
+  id: ID!
+  logo: String
+  members: [MemberModel!]!
+  messages: [MessageModel!]!
+  updatedAt: DateTime!
+}
+
+input ChatSettingsInput {
+  description: String!
+  displayName: String!
+  logo: String!
+}
+
 input CreateUserInput {
   email: String!
   password: String!
@@ -18,25 +35,54 @@ input LoginInput {
   password: String!
 }
 
+type MemberModel {
+  chat: ChatModel!
+  chatId: String!
+  createdAt: DateTime!
+  id: ID!
+  updatedAt: DateTime!
+  user: UserModel!
+  userId: String!
+}
+
+type MessageModel {
+  chat: ChatModel!
+  chatId: String!
+  createdAt: DateTime!
+  id: ID!
+  sender: UserModel!
+  senderId: String!
+  updatedAt: DateTime!
+}
+
 type Mutation {
+  createPersonalChat(data: ChatSettingsInput!, userId: String!): ChatModel!
   createUser(data: CreateUserInput!): UserModel!
   login(data: LoginInput!): UserModel!
   logout: Boolean!
+  sendChatMessage(chatId: String!, text: String!): MessageModel!
 }
 
 type Query {
   findAllUsers: [UserModel!]!
+  findChatMessages(chatId: String!): [MessageModel!]!
+  findChatsByUser: [ChatModel!]!
   findUser: UserModel!
 }
 
+type Subscription {
+  messageSended: ChatModel!
+}
+
 type UserModel {
-  avatar: String
-  bio: String
+  avatar: String!
+  bio: String!
+  chats: [ChatModel!]!
   createdAt: DateTime!
   displayName: String!
-  email: String!
   id: ID!
-  password: String!
+  members: [MemberModel!]!
+  messages: [MessageModel!]!
   updatedAt: DateTime!
   username: String!
 }
