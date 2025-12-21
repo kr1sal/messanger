@@ -7,18 +7,19 @@ import ContactPreview from './ContactPreview';
 import type { MessageData } from '../../models/data/message';
 import Message from './Message';
 import SendMessage from './SendMessage';
+import ProfilePreview from './ProfilePreview';
 
 function HomePage() {
     const contactsData: Array<UserData> = [
         { id: "asdliasd", name: "test name", status: "adidas", avatarUrl: "https://www.vhv.rs/dpng/d/17-174778_vladimir-putin-png-transparent-png.png" }
     ]
 
-    // const currentUser: UserData = {
-    //     id: "1",
-    //     name: "Lol",
-    //     status: "kek",
-    //     avatarUrl: '',
-    // }
+    const currentUserData: UserData = {
+        id: "1",
+        name: "Lol",
+        status: "kek",
+        avatarUrl: '',
+    }
 
     const currentContactData: UserData = {
         id: "2",
@@ -71,7 +72,7 @@ function HomePage() {
                     {contactsData.map((contactData, index) => <Contact {...contactData} key={index} />)}
                 </div>
             </div>
-            <div className="profile-preview"></div>
+            <ProfilePreview {...currentUserData} />
         </div>
         <div className="chat">
             <ContactPreview {...currentContactData} />

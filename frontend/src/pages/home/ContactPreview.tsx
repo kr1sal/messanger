@@ -1,5 +1,6 @@
 import type { UserData } from "../../models/data/user";
 import profileIconPath from '../../assets/profile.svg';
+import kebabIconPath from '../../assets/kebab.svg';
 import "./ContactPreview.css";
 
 function ContactPreview(props: UserData) {
@@ -10,7 +11,9 @@ function ContactPreview(props: UserData) {
             <p className="contact-preview__status">{props.status}</p>
         </div>
         <div className="contact-preview__actions">
-            <button className="contact-preview__other"></button>
+            <button className="contact-preview__other">
+                <img src={kebabIconPath} alt="Delete Contact" />
+            </button>
         </div>
     </div>
 }

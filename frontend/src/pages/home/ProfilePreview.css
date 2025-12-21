@@ -1,0 +1,23 @@
+.profile-preview {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: auto;
+  background-color: var(--secondary-color);
+}
+
+.profile-preview__icon {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-preview__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-preview__name {
+}
+
+.profile-preview__status {
+}

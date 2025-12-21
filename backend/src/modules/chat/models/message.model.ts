@@ -22,4 +22,7 @@ export class MessageModel {
 
   @Field(() => ChatModel)
   public chat: ChatModel;
+
+  @Field(() => String)
+  public text: string;
 }
